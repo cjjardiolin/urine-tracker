@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Urine Output Tracker</title>
+
+    https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css
+    /style.css
+</head>
+
+<body>
+
+<div class="container py-4">
+
+    <div class="card shadow-lg">
+
+        <div class="card-header bg-primary text-white">
+            <h2>🩺 Patient Urine Output Tracker</h2>
+        </div>
+
+        <div class="card-body">
+
+            /add
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+                        <label class="form-label">
+                            Patient Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="patient"
+                            class="form-control"
+                            required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">
+                            Urine Output (mL)
+                        </label>
+
+                        <input
+                            type="number"
+                            name="volume"
+                            min="1"
+                            class="form-control"
+                            required>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label class="form-label">
+                            Notes
+                        </label>
+
+                        <input
+                            type="text"
+                            name="notes"
+                            class="form-control">
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success mt-3">
+                    Save Record
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="alert alert-info mt-4">
+        <strong>Total Recorded:</strong>
+        <%= total %> mL
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-header">
+            Recorded Entries
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Volume</th>
+                        <th>Notes</th>
+                        <th>Date / Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                <% records.forEach(record => { %>
+
+                    <tr>
+
+                        <td><%= record.patient %></td>
+
+                        <td><%= record.volume %> mL</td>
+
+                        <td><%= record.notes %></td>
+
+                        <td><%= record.created_at %></td>
+
+                        <td>
+                            /delete/<%= record.id %>                              method="POST">
+
+                                <button
+                                  class="btn btn-danger btn-sm">
+                                  Delete
+                                </button>
+
+                            </form>
+                        </td>
+
+                    </tr>
+
+                <% }) %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
