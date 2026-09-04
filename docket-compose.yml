@@ -1,0 +1,12 @@
+services:
+  urine-tracker:
+    build: .
+    container_name: urine-tracker
+
+    restart: unless-stopped
+
+    ports:
+      - "5001:5001"
+
+    volumes:
+      - ./data:/app/data
