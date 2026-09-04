@@ -1,0 +1,15 @@
+body {
+    background-color: #f3f6fa;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.table {
+    vertical-align: middle;
+}
